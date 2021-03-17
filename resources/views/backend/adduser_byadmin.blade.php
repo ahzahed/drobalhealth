@@ -40,7 +40,7 @@
                             <label for="speciality">{{ __('Speciality') }}</label>
 
                        
-                                <input id="speciality" type="speciality" placeholder="Cardiology (Chest pain, palpitations)" class="form-control @error('speciality') is-invalid @enderror" name="speciality" required>
+                                <input id="speciality" type="text" placeholder="Cardiology (Chest pain, palpitations)" class="form-control @error('speciality') is-invalid @enderror" name="speciality" required>
 
                                 @error('speciality')
                                     <span class="invalid-feedback" role="alert">
@@ -53,9 +53,22 @@
                             <label for="qualification">{{ __('Qualification') }}</label>
 
                         
-                                <input id="qualification" type="qualification" placeholder="MBBS, M.S,MCH(CVTS)" class="form-control @error('qualification') is-invalid @enderror" name="qualification" required>
+                                <input id="qualification" type="text" placeholder="MBBS, M.S,MCH(CVTS)" class="form-control @error('qualification') is-invalid @enderror" name="qualification" required>
 
                                 @error('qualification')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                     
+                        </div>
+                        <div class="form-group">
+                            <label for="hospital">{{ __('Hospital Name') }}</label>
+
+                        
+                                <input id="hospital" type="text" placeholder="Lab Aid Hospital, Dhaka" class="form-control @error('hospital') is-invalid @enderror" name="hospital" required>
+
+                                @error('hospital')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -66,7 +79,7 @@
                             <label for="description">{{ __('Description') }}</label>
 
                        
-                                <textarea id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" required></textarea>
+                                <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required></textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">

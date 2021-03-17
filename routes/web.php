@@ -30,9 +30,17 @@ Route::get('/', function () {
     if (!$ip_address) {
         VisitorModel::insert(['ip_address' => $UserIP, 'visit_time' => $timeDate, 'getbrowser' => $getbrowser, 'getdevice' => $getdevice, 'getos' => $getos]);
     }
+    // $blogs = Blog::paginate(6);
+    // $users = User::where('user_type', '=', '2')->get();
+    // return view('home', compact('blogs','users'));
+    $blogs = Blog::paginate(15);
+    $limitedBlogs = Blog::orderByDesc('priority')->limit(8)->get();
+    return view('frontend/allblogs', compact('blogs', 'limitedBlogs'));
+});
+Route::get('/homemain', function () {
     $blogs = Blog::paginate(6);
     $users = User::where('user_type', '=', '2')->get();
-    return view('home', compact('blogs','users'));
+    return view('home', compact('blogs', 'users'));
 });
 
 Auth::routes(['verify' => true]);

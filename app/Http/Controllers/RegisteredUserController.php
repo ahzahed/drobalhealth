@@ -31,6 +31,7 @@ class RegisteredUserController extends Controller
             'speciality' => ['required'],
             'qualification' => ['required'],
             'description' => ['required'],
+            'hospital' => ['required'],
             'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
         $data = array();
@@ -39,6 +40,7 @@ class RegisteredUserController extends Controller
         $data['speciality'] = $request->speciality;
         $data['qualification'] = $request->qualification;
         $data['description'] = $request->description;
+        $data['hospital'] = $request->hospital;
 
 
         $avatarUpload = request()->file('avatar');

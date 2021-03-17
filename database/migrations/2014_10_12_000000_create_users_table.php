@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('speciality')->nullable();
             $table->string('qualification')->nullable();
+            $table->string('hospital')->nullable();
             $table->text('description')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('pending')->default(0);

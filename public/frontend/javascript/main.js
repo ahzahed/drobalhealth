@@ -692,26 +692,26 @@
         });
     };
 
-    var retinaLogos = function () {
-        var retina = window.devicePixelRatio > 1 ? true : false;
+    // var retinaLogos = function () {
+    //     var retina = window.devicePixelRatio > 1 ? true : false;
 
-        if (retina) {
-            $(".header .logo")
-                .find("img")
-                .attr({
-                    src: "./images/logo@2x.png",
-                    width: "184",
-                    height: "50",
-                });
-            $(".footer-widgets .widget .textwidget")
-                .find("img")
-                .attr({
-                    src: "./images/logo-footer@2x.png",
-                    width: "184",
-                    height: "50",
-                });
-        }
-    };
+    //     if (retina) {
+    //         $(".header .logo")
+    //             .find("img")
+    //             .attr({
+    //                 src: "./images/logo@2x.png",
+    //                 width: "184",
+    //                 height: "50",
+    //             });
+    //         $(".footer-widgets .widget .textwidget")
+    //             .find("img")
+    //             .attr({
+    //                 src: "./images/logo-footer@2x.png",
+    //                 width: "184",
+    //                 height: "50",
+    //             });
+    //     }
+    // };
 
     var parallax = function () {
         if ($().parallax && isMobile.any() == null) {
@@ -754,7 +754,7 @@
         flatAnimation();
         goTop();
         responsiveVideo();
-        retinaLogos();
+        // retinaLogos();
         parallax();
         removePreloader();
     });
@@ -770,15 +770,33 @@
             pauseOnHover: false,
             responsive: [
                 {
-                    breakpoint: 768,
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 5,
+                    },
+                },
+                {
+                    breakpoint: 1200,
                     settings: {
                         slidesToShow: 4,
                     },
                 },
                 {
-                    breakpoint: 520,
+                    breakpoint: 992,
                     settings: {
                         slidesToShow: 3,
+                    },
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                    },
+                },
+                {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 1,
                     },
                 },
             ],

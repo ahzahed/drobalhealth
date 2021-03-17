@@ -30,6 +30,7 @@ class AddUserByAdminController extends Controller
                 'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
                 'speciality'    => ['required', 'string'],
                 'qualification' => ['required', 'string'],
+                'hospital' => ['required', 'string'],
                 'description'   => ['required', 'string'],
             ]);
             $post = new User();
@@ -45,6 +46,7 @@ class AddUserByAdminController extends Controller
             $post->avatar = 'public/backend/images/avatar/' . $imageName;
             $post->speciality = $request->speciality;
             $post->qualification = $request->qualification;
+            $post->hospital = $request->hospital;
             $post->description = $request->description;
 
             $post->password = Hash::make($request->password);

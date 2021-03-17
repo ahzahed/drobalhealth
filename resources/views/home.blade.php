@@ -66,6 +66,19 @@
 <!--End of Tawk.to Script-->
 
 <body class="page-template-front-page header-sticky home">
+
+    <!--Left Side Buttons Start-->
+    <div class="sticky-left-container">
+        <ul class="sticky-left">
+            <li>
+                <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt=""
+                        src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
+            </li>
+
+        </ul>
+    </div>
+    <!--Left Side Buttons End-->
+
     <div class="loader">
         <span class="loader1 block-loader"></span>
         <span class="loader2 block-loader"></span>
@@ -78,7 +91,7 @@
         <header id="header" class="header style1 clearfix">
             <div class="header-inner">
                 <div id="logo" class="logo">
-                    <a href="{{ url('/') }}" rel="home">
+                    <a href="{{ url('/homemain') }}" rel="home">
                         <img src="{{ asset('public/frontend/images/logo.png') }}" style="height: 55px; width: 180px"
                             alt="Drobal Health Logo">
                     </a>
@@ -88,7 +101,7 @@
                     <nav id="mainnav" class="mainnav">
                         <ul class="menu">
                             <li class="home">
-                                <a href="{{ url('/') }}">Home</a>
+                                <a href="{{ url('/homemain') }}">Home</a>
                             </li>
                             <li><a href="#blog">Blog</a>
                                 <ul class="submenu">
@@ -331,6 +344,8 @@
                                                     $blog->user->name }}</a></span>
                                             <span class="comment"><a href="#">{{ $blog->user->qualification
                                                     }}</a></span>
+                                            <p class="p-0 m-0"><i class="fas fa-hospital-alt pr-1"></i> {{
+                                                $blog->user->hospital }}</p>
                                             {{-- <span class="vote"><a href="#">20</a></span> --}}
                                         </div><!-- /.meta-post -->
                                         <div class="entry-content">
@@ -355,252 +370,97 @@
             </section>
 
 
-
-            <!-- IconBox -->
-            <section id="services" class="flat-row nopad">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 col-nopad">
-                            <div class="single-images">
-                                <img src="{{ asset('public/frontend/images/blog/services.jpg') }}" alt="images">
-                            </div>
-                        </div><!-- /.col-md-6 -->
-                        <div class="col-md-6">
-                            <div class="flat-divider d100px"></div>
-                            <div class="title-section desc">
-                                <h1 class="title" data-text="S">Our<span>Services</span></h1>
-                                <div class="desc">Lorem ipsum dolor sit amet sed tincidunt suscipit id malesuada.</div>
-                            </div><!-- /.title-section -->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="flat-iconbox icon-right">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon1.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Oral Surgery</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Teleconsultation with Best Indian
-                                                Specialist Doctors</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-right">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon2.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Dental Care</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Treatment Guidance from Professional
-                                                Doctors</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-right">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon3.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Cosmetic Dentistry</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Regular follow up by Local doctors
-                                            </h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-right">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon3.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Cosmetic Dentistry</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Follow up consultation with Indian
-                                                doctors after procedure</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-right">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon3.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Cosmetic Dentistry</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Multilingual Translator services
-                                            </h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="flat-iconbox icon-left">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon4.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Teeth Cleaning</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Visa invitation, Visa & Ticketing
-                                                services</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon5.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Oral Hygienist</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Stay arrangements</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon6.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Care Advice</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Local sightseeing arrangements</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon6.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Care Advice</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Medicine from India</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon6.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Care Advice</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> Family members/attender's whole body
-                                                checkup</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        {{-- <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon6.png') }}"
-                                                alt="images">
-                                        </span> --}}
-                                        <div>
-                                            {{-- <div class="title">Care Advice</div> --}}
-                                            <h6><i class="fas fa-check-double"></i> 24*7 support services</h6>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-6 -->
+            <section class="container">
+                <div class="title-section desc mb-0 mt-5">
+                    <h1 class="title" data-text="S">Our<span>Services</span></h1>
+                    <div class="desc mb-5">Lorem ipsum dolor sit amet sed tincidunt suscipit id malesuada.</div>
+                </div><!-- /.title-section -->
+                <div class="row">
+                    
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                            <h3 class="title">Regular follow up by Local doctors</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
                     </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-ticket-alt"></i></div>
+                            <h3 class="title">Visa invitation, Visa & Ticketing services</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-map-pin"></i></div>
+                            <h3 class="title">Local sightseeing arrangements</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fa fa-rocket"></i></div>
+                            <h3 class="title">Stay arrangements</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-capsules"></i></div>
+                            <h3 class="title">Medicine from India</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-language"></i></div>
+                            <h3 class="title">Multilingual Translator services</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-user-clock"></i></div>
+                            <h3 class="title">24*7 support services</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                 
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h3 class="title">Teleconsultation with Best Indian Specialist Doctors</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                            <h3 class="title">Treatment Guidance from Professional Doctors</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-file-prescription"></i></div>
+                            <h3 class="title">Follow up consultation with Indian doctors after procedure</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fas fa-child"></i></div>
+                            <h3 class="title">Family members/attender's whole body checkup</h3>
+                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </section>
-            {{-- <section id="services" class="flat-row nopad">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 col-nopad">
-                            <div class="single-images">
-                                <img src="{{ asset('public/frontend/images/blog/services.jpg') }}" alt="images">
-                            </div>
-                        </div><!-- /.col-md-6 -->
-                        <div class="col-md-6">
-                            <div class="flat-divider d100px"></div>
-                            <div class="title-section desc">
-                                <h1 class="title" data-text="S">Our<span>Services</span></h1>
-                                <div class="desc">Lorem ipsum dolor sit amet sed tincidunt suscipit id malesuada.</div>
-                            </div><!-- /.title-section -->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="flat-iconbox icon-right">
-                                        <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon1.png') }}"
-                                                alt="images">
-                                        </span>
-                                        <div class="content">
-                                            <div class="title">Oral Surgery</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit mi purus.</p>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-right">
-                                        <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon2.png') }}"
-                                                alt="images">
-                                        </span>
-                                        <div class="content">
-                                            <div class="title">Dental Care</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit mi purus.</p>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-right">
-                                        <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon3.png') }}"
-                                                alt="images">
-                                        </span>
-                                        <div class="content">
-                                            <div class="title">Cosmetic Dentistry</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit mi purus.</p>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="flat-iconbox icon-left">
-                                        <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon4.png') }}"
-                                                alt="images">
-                                        </span>
-                                        <div class="content">
-                                            <div class="title">Teeth Cleaning</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit mi purus.</p>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon5.png') }}"
-                                                alt="images">
-                                        </span>
-                                        <div class="content">
-                                            <div class="title">Oral Hygienist</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit mi purus.</p>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-
-                                    <div class="flat-iconbox icon-left">
-                                        <span class="icon">
-                                            <img src="{{ asset('public/frontend/images/icon/icon6.png') }}"
-                                                alt="images">
-                                        </span>
-                                        <div class="content">
-                                            <div class="title">Care Advice</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit mi purus.</p>
-                                        </div>
-                                    </div><!-- /.flat-icon-box -->
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-6 -->
-                    </div>
-                </div>
-            </section> --}}
 
 
+            
 
             <!-- Our team -->
             <section id="doctor" class="flat-row row-our-team">
@@ -620,13 +480,14 @@
 
                         <!-- Team item -->
                         <a href="{{ url('posted_by/'.Crypt::encrypt($user->id)) }}">
-                            <div class=" slide text-center">
+                            <div class="slide text-center">
                                 <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{ asset($user->avatar) }}"
-                                        alt="" style="height: 225px; width: 225px"
+                                        alt="" style="height: 185px; width: 185px; margin:auto"
                                         class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                                     <h5 class="mb-0">{{$user->name}}</h5><span
                                         class="large text-uppercase text-dark">{{$user->qualification}}</span><br>
-                                    <span class="small text-uppercase text-muted">{{$user->speciality}}</span>
+                                    <span class="small text-uppercase text-muted">{{$user->speciality}}</span><br>
+                                    <span class="small text-uppercase text-muted">{{$user->hospital}}</span>
 
                                 </div>
                             </div><!-- End -->
@@ -732,13 +593,11 @@
                                 <div class="textwidget">
                                     <p>
                                         Adress: House-1, Road-1, Gate-5, Block-B, Lalmatia, Dhaka.<br>
-                                        <a href="mailto:shakhawatkhan8@gmail.com" style="color: #858585">Email:
-                                            shakhawatkhan8@gmail.com</a><br>
+
                                         <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
                                             drobal.mt@gmail.com</a>
                                         <br>
-                                        <a href="tel:+8801976355573" style="color: #858585">Phone:
-                                            +8801976355573</a><br>
+
                                         <a href="tel:+880132 240 5882" style="color: #858585">Phone: 0132 240 5882-5</a>
                                     </p>
                                 </div>

@@ -25,6 +25,7 @@
                       <th>Email</th>
                       <th>Speciality</th>
                       <th>Qualification</th>
+                      <th>Hospital Name</th>
                       <th colspan="2">Action</th>
                       <th>Status</th>
                     </tr>
@@ -39,6 +40,7 @@
                             <td>{{$registeredUser->email}}</td>
                             <td>{{$registeredUser->speciality}}</td>
                             <td>{{$registeredUser->qualification}}</td>
+                            <td>{{$registeredUser->hospital}}</td>
                             <td><a href="{{ url('user_profile/'.$registeredUser->id) }}" class="btn btn-primary">Details</a></td>
                             <td><a href="{{ url('userroleDelete/'.$registeredUser->id) }}" class="btn btn-danger">Delete</a></td>
                             @if ($registeredUser->user_type == '1')

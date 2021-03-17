@@ -27,6 +27,10 @@
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/responsive.css') }}">
 
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/fontawesome/css/fontawesome.min.css') }}">
+
     <!-- Colors -->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/colors/color1.css') }}"
         id="colors">
@@ -61,12 +65,22 @@
 <!--End of Tawk.to Script-->
 
 <body class="header-sticky">
+    <!--Left Side Buttons Start-->	
+      <div class="sticky-left-container">
+        <ul class="sticky-left">
+          <li>
+            <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
+          </li>
+      
+      </ul>
+    </div>
+<!--Left Side Buttons End-->
 
     <!-- Header -->
     <header id="header" class="header style1 clearfix">
         <div class="header-inner">
             <div id="logo" class="logo">
-                <a href="{{ url('/') }}" rel="home">
+                <a href="{{ url('/homemain') }}" rel="home">
                     <img src="{{ asset('public/frontend/images/logo.png') }}" style="height: 55px; width: 180px"
                         alt="Drobal Health Logo">
                 </a>
@@ -76,16 +90,16 @@
                 <nav id="mainnav" class="mainnav">
                     <ul class="menu">
                         <li class="home">
-                            <a href="{{ url('/') }}">Home</a>
+                            <a href="{{ url('/homemain') }}">Home</a>
                         </li>
                         <li><a href="#blog">Blog</a>
                             <ul class="submenu">
                                 <li><a href="{{ route('front_all_blogs') }}">Blogs </a></li>
                             </ul><!-- /.submenu -->
                         </li>
-                        <li><a href="{{ url('/'.'#services') }}">Services</a></li>
-                        <li><a href="{{ url('/'.'#about') }}">About</a></li>
-                        <li><a href="{{ url('/'.'#contact') }}">Contact</a></li>
+                         <li><a href="{{ url('/homemain'.'#services') }}">Services</a></li>
+                        <li><a href="{{ url('/homemain'.'#about') }}">About</a></li>
+                        <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
                         @guest
                         {{-- <li>
                             <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
@@ -124,7 +138,7 @@
                 <div class="col-md-12">
                     <div class="breadcrumbs">
                         <ul>
-                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="{{ url('/homemain') }}">Home</a></li>
                             <li><a href="#">Detail BLogs</a></li>
                         </ul>
                     </div><!-- /.breadcrumbs -->
@@ -161,6 +175,7 @@
                                             href="{{ url('posted_by/'.Crypt::encrypt($blog->user->id)) }}">{{
                                             $blog->user->name }}</a></span>
                                     <span class="comment"><a href="#">{{ $blog->user->qualification }}</a></span>
+                                      <p class="p-0 m-0"><i class="fas fa-hospital-alt pr-1"></i> {{ $blog->user->hospital }}</p>
                                 </div><!-- /.entry-meta -->
 
                                 <div class="entry-content">
@@ -259,12 +274,11 @@
                             <div class="textwidget">
                                 <p>
                                     Adress: House-1, Road-1, Gate-5, Block-B, Lalmatia, Dhaka.<br>
-                                    <a href="mailto:shakhawatkhan8@gmail.com" style="color: #858585">Email:
-                                        shakhawatkhan8@gmail.com</a><br>
+                                 
                                     <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
                                         drobal.mt@gmail.com</a>
                                     <br>
-                                    <a href="tel:+8801976355573" style="color: #858585">Phone: +8801976355573</a><br>
+                               
                                     <a href="tel:+880132 240 5882" style="color: #858585">Phone: 0132 240 5882-5</a>
                                 </p>
                             </div>

@@ -241,7 +241,7 @@
 	color: #fff;
 }
 
-.title-section .title:after {
+/* .title-section .title:after {
 	position: absolute;
 	left: 50%;
 	margin-left: -125.5px;
@@ -250,7 +250,7 @@
 	content: "";
 	width: 251px;
 	height: 12px;
-}
+} */
 
 .title-section.white .title:after {
 	background: url("../images/icon/line-white.png") no-repeat center center;

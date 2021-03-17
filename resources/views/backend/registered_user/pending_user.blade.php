@@ -23,6 +23,7 @@
                       <th>Email</th>
                       <th>Speciality</th>
                       <th>Qualification</th>
+                      <th>Hospital Name</th>
                       <th colspan="2">Action</th>
                       <th>Status</th>
                     </tr>
@@ -37,6 +38,7 @@
                       <td>{{$pendingUser->email}}</td>
                       <td>{{$pendingUser->speciality}}</td>
                       <td>{{$pendingUser->qualification}}</td>
+                      <td>{{$pendingUser->hospital}}</td>
                       
                       <td><a href="{{ url('pendingUserDelete/'.$pendingUser->id) }}" id="delete" class="btn btn-danger">Delete</a></td>
                       <td><a href="{{ url('user_profile/'.$pendingUser->id) }}" class="btn btn-primary">Details</a></td>

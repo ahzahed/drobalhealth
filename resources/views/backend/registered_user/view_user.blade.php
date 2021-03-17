@@ -24,6 +24,7 @@
                         <p class="small mb-0 text-dark">{{ $registeredUser->email }}</p>
                         <p class="small mb-0 text-dark">{{ $registeredUser->speciality }}</p>
                         <p class="small mb-0 text-dark">{{ $registeredUser->qualification }}</p>
+                        <p class="small mb-0 text-dark">{{ $registeredUser->hospital }}</p>
                     </div>
                 </div>
             </div>
@@ -95,6 +96,16 @@
                                 <input type="text" class="form-control @error('qualification') is-invalid @enderror" name="qualification"
                                     value="{{ $registeredUser->qualification }}">
                                 @error('qualification')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Hospital Name</label>
+                                <input type="text" class="form-control @error('hospital') is-invalid @enderror" name="hospital"
+                                    value="{{ $registeredUser->hospital }}">
+                                @error('hospital')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

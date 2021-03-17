@@ -57,9 +57,22 @@
                             <label for="qualification" class="col-md-4 col-form-label text-md-right">{{ __('Qualification') }}</label>
 
                             <div class="col-md-6">
-                                <input id="qualification" type="qualification" class="form-control @error('qualification') is-invalid @enderror" placeholder="MBBS, M.S,MCH(CVTS)" name="qualification" required>
+                                <input id="qualification" type="text" class="form-control @error('qualification') is-invalid @enderror" placeholder="MBBS, M.S,MCH(CVTS)" name="qualification" required>
 
                                 @error('qualification')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="hospital" class="col-md-4 col-form-label text-md-right">{{ __('Hospital Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="hospital" type="text" class="form-control @error('hospital') is-invalid @enderror" placeholder="Lab Aid Hospital, Dhaka" name="hospital" required>
+
+                                @error('hospital')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -70,7 +83,7 @@
                             <label for="description">{{ __('Description') }}</label>
 
                          
-                                <textarea id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" required></textarea>
+                                <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required></textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
