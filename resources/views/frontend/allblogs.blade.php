@@ -47,28 +47,40 @@
         <script src="javascript/respond.min.js"></script>
     <![endif]-->
 </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/6048c4c61c1c2a130d67056d/1f0e41abi';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+
 
 <body class="header-sticky">
     <!--Left Side Buttons Start-->	
-      <div class="sticky-left-container">
+      {{-- <div class="sticky-left-container">
         <ul class="sticky-left">
           <li>
             <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
           </li>
       
+      </ul>
+    </div> --}}
+<!--Left Side Buttons End-->
+
+<!--Left Side Buttons Start-->	
+      <div class="sticky-left-container">
+        <ul class="sticky-left">
+          <li>
+              <a href="tel:+880132 240 5882" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/phone.png') }}"/>
+            <p>Phone</p>
+            </a>
+          </li>
+          <li>
+              <a href="https://wa.me/+8801322405881" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" />
+            <p>Whatsapp</p>
+            </a>
+          </li>
+          <li><a href="https://m.me/drobalhealth" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/messenger.svg') }}" />
+            <p>Messenger</p>
+            </a>
+        </li>
       </ul>
     </div>
 <!--Left Side Buttons End-->
@@ -98,9 +110,9 @@
                         <li><a href="{{ url('/homemain'.'#about') }}">About</a></li>
                         <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
                         @guest
-                        {{-- <li>
+                        <li>
                             <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
-                        </li> --}}
+                        </li>
                         @else
                         <li><a href="#">{{ Auth::user()->name }}</a>
                             <ul class="submenu" style="width: 100%">
@@ -112,7 +124,7 @@
                                 </li>
                                 {{-- @if (Auth::user()->user_type=="0")
                                 <a href="#">Home</a> --}}
-                                @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2")
+                                @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2"|| Auth::user()->user_type=="0")
                                 <li><a href="{{ route('home') }}">Admin Panel</a></li>
                                 @endif
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -133,14 +145,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="breadcrumbs">
-                        <ul>
+                    <div class="breadcrumbs" style="height: 250px">
+                        {{-- <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="blog.html">The BLogs</a></li>
-                        </ul>
+                        </ul> --}}
                     </div><!-- /.breadcrumbs -->
                     <div class="page-title-heading">
-                        <h1 class="title">The Blogs</h1>
+                        {{-- <h1 class="title">The Blogs</h1> --}}
                     </div><!-- /.page-title-captions -->
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row -->
@@ -168,10 +180,10 @@
                                 <h2 class="entry-title"><a href="{{ url('blog_details/'.Crypt::encrypt($blog->id)) }}">{{$blog->title}}</a></h2>
                                 <div class="entry-meta">
                                     <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
-                                    <span class="author"><a
+                                    <span class="author font-weight-bold"><a class="font-weight-bold"
                                             href="{{ url('posted_by/'.Crypt::encrypt($blog->user->id)) }}">{{
                                             $blog->user->name }}</a></span>
-                                    <span class="comment"><a href="#">{{ $blog->user->qualification }}</a></span>
+                                    <span class="comment font-weight-bold"><a href="#" class="font-weight-bold">{{ $blog->user->qualification }}</a></span>
                                     <p class="p-0 m-0"><i class="fas fa-hospital-alt pr-1"></i> {{ $blog->user->hospital }}</p>
                                     {{-- <span class="comment"><a href="#">12</a></span>
                                     <span class="vote"><a href="#">20</a></span> --}}
@@ -295,20 +307,20 @@
     </footer>
 
     <!-- Bottom -->
-    <div class="bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="copyright">
-                        <p>Copyright ©2016
-                            <a href="http://themeforest.net/user/vinawebsolutions" target="_blank"> Vina Web Solutions
-                                Company.</a> All Rights Reserved.
-                        </p>
-                    </div>
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div>
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="copyright">
+                            <p>Copyright ©2021
+                                <a href="https://drobalhealth.com.bd/" target="_blank"> Drobal Marketing & Trading
+                                </a> All Rights Reserved.
+                            </p>
+                        </div>
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
 
     <!-- Go Top -->
     <a class="go-top">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Coupon;
 use App\Mail\InvoiceMail;
 use App\Package;
@@ -138,7 +139,8 @@ class RegisteredUserController extends Controller
     {
         if (Auth::user()->user_type == 1 || Auth::user()->user_type == 2) {
             $registeredUser = User::where('id', $id)->first();
-            return view('backend.registered_user.view_user', compact('registeredUser'));
+            $blogs = Blog::where('user_id', $id)->count();
+            return view('backend.registered_user.view_user', compact('registeredUser', 'blogs'));
         }
         return Redirect()->route('home');
     }
@@ -147,7 +149,8 @@ class RegisteredUserController extends Controller
     {
         if (Auth::user()->user_type == 1 || Auth::user()->user_type == 2 || Auth::user()->user_type == 0) {
             $registeredUser = User::where('id', $id)->first();
-            return view('backend.registered_user.view_user', compact('registeredUser'));
+            $blogs = Blog::where('user_id', $id)->count();
+            return view('backend.registered_user.view_user', compact('registeredUser', 'blogs'));
         }
         return Redirect()->route('home');
     }

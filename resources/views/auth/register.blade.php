@@ -83,7 +83,7 @@
                             <label for="description">{{ __('Description') }}</label>
 
                          
-                                <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required></textarea>
+                                <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required>Please don't provide any contact information here</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">

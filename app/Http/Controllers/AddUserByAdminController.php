@@ -47,6 +47,8 @@ class AddUserByAdminController extends Controller
             $post->speciality = $request->speciality;
             $post->qualification = $request->qualification;
             $post->hospital = $request->hospital;
+            $post->status = 1;
+            $post->pending = 1;
             $post->description = $request->description;
 
             $post->password = Hash::make($request->password);

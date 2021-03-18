@@ -112,9 +112,9 @@
                             <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                             @guest
-                            {{-- <li>
+                            <li>
                                 <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
-                            </li> --}}
+                            </li>
                             @else
                             <li><a href="#">{{ Auth::user()->name }}</a>
                                 <ul class="submenu" style="width: 100%">
@@ -339,10 +339,10 @@
                                                 $blog->title }}</a></h2>
                                         <div class="entry-meta">
                                             <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
-                                            <span class="author"><a
+                                            <span class="author font-weight-bold"><a class="font-weight-bold"
                                                     href="{{ url('posted_by/'.Crypt::encrypt($blog->user->id)) }}">{{
                                                     $blog->user->name }}</a></span>
-                                            <span class="comment"><a href="#">{{ $blog->user->qualification
+                                            <span class="comment font-weight-bold"><a href="#" class="font-weight-bold">{{ $blog->user->qualification
                                                     }}</a></span>
                                             <p class="p-0 m-0"><i class="fas fa-hospital-alt pr-1"></i> {{
                                                 $blog->user->hospital }}</p>

@@ -1,7 +1,7 @@
 @extends('backend.app')
 
 @section('content')
-@if (Auth::user()->status === 0 || Auth::user()->pending===0)
+@if (Auth::user()->status == "0" || Auth::user()->pending == "0")
     <div class="container">
       <h1>Your profile is not approved yet!</h1>
     <h2>We will review your profile and approve you soon</h2>

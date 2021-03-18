@@ -101,9 +101,9 @@
                         <li><a href="{{ url('/homemain'.'#about') }}">About</a></li>
                         <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
                         @guest
-                        {{-- <li>
+                        <li>
                             <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
-                        </li> --}}
+                        </li>
                         @else
                         <li><a href="#">{{ Auth::user()->name }}</a>
                             <ul class="submenu" style="width: 100%">
@@ -115,7 +115,7 @@
                                 </li>
                                 {{-- @if (Auth::user()->user_type=="0")
                                 <a href="#">Home</a> --}}
-                                @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2")
+                                @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2" || Auth::user()->user_type=="0")
                                 <li><a href="{{ route('home') }}">Admin Panel</a></li>
                                 @endif
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -136,14 +136,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="breadcrumbs">
+                    <div class="breadcrumbs" style="height: 250px">
                         <ul>
-                            <li><a href="{{ url('/homemain') }}">Home</a></li>
-                            <li><a href="#">Detail BLogs</a></li>
+                            {{-- <li><a href="{{ url('/homemain') }}">Home</a></li>
+                            <li><a href="#">Detail BLogs</a></li> --}}
                         </ul>
                     </div><!-- /.breadcrumbs -->
                     <div class="page-title-heading">
-                        <h1 class="title">Detail Blogs</h1>
+                        {{-- <h1 class="title">Detail Blogs</h1> --}}
                     </div><!-- /.page-title-captions -->
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row -->
@@ -310,20 +310,20 @@
     </footer>
 
     <!-- Bottom -->
-    <div class="bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="copyright">
-                        <p>Copyright ©2016
-                            <a href="http://modernwebtemplates.com" target="_blank"> Vina Web Solutions Company.</a>All
-                            Rights Reserved.
-                        </p>
-                    </div>
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div>
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="copyright">
+                            <p>Copyright ©2021
+                                <a href="https://drobalhealth.com.bd/" target="_blank"> Drobal Marketing & Trading
+                                </a> All Rights Reserved.
+                            </p>
+                        </div>
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
 
     <!-- Go Top -->
     <a class="go-top">

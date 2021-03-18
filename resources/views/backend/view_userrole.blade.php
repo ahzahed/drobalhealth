@@ -10,7 +10,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                @if(Auth::user()->user_type == 1)
+                @if(Auth::user()->user_type == "1")
                             <a class="btn btn-info" href="{{url('/adduser_byadmin')}}" role="button">Add User</a>
                         @endif
             </div>

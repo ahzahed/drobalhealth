@@ -45,7 +45,7 @@ Route::get('/homemain', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');;
 
 //For Admin
 Route::get('/visitor', 'VisitorController@visitorIndex');

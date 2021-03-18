@@ -2702,10 +2702,10 @@ footer {
     padding: 0px;
     margin: 0px;
     position: fixed;
-    left: -128px;
-    top:90%;
+    right: -158px;
+    top:40%;
     width: 200px;
-    z-index:999;
+    z-index:2;
   }
   .sticky-left li{
     list-style-type: none;
@@ -2720,22 +2720,25 @@ footer {
     transition:all 0.25s ease-in-out;
     cursor: pointer; 
   }
-
+  .sticky-left li:hover{
+    margin-left: -150px;
+    background:#333;
+    border-radius: 25px 25px 25px 0;
+  }
   .sticky-left li img{
-    float: right;
+    float: left;
     border-radius:50%; 
     margin: 5px 5px;
-    margin-left: 10px;
+    margin-right: 10px;
   }
   .sticky-left li p{
     padding: 0px;
-    float:right;
+    float:left;
     margin: 0px;
     text-transform: uppercase;
     line-height: 43px;
   }
 /*Left Side Buttons End*/
-
 
 .serviceBox{ 
   padding: 25px 30px;
