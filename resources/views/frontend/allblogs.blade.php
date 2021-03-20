@@ -50,16 +50,7 @@
 
 
 <body class="header-sticky">
-    <!--Left Side Buttons Start-->	
-      {{-- <div class="sticky-left-container">
-        <ul class="sticky-left">
-          <li>
-            <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
-          </li>
-      
-      </ul>
-    </div> --}}
-<!--Left Side Buttons End-->
+    
 
 <!--Left Side Buttons Start-->	
       <div class="sticky-left-container">
@@ -111,7 +102,7 @@
                         <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
                         @guest
                         <li>
-                            <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
+                            <a href="{{ route('login') }}">{{ __('Login')}}</a>
                         </li>
                         @else
                         <li><a href="#">{{ Auth::user()->name }}</a>

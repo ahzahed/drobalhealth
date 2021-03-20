@@ -22,17 +22,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/bootstrap.css') }}">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/postedby.css') }}">
 
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/responsive.css') }}">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <!-- Colors -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/colors/color1.css') }}"
-        id="colors">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/colors/color1.css') }}" id="colors"> --}}
 
     <!-- Animation Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/animate.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/animate.css') }}"> --}}
 
     <!-- Favicon and touch icons  -->
     <link href="{{ asset('public/frontend/icon/apple-touch-icon-48-precomposed.png') }}"
@@ -59,9 +58,9 @@
             text-decoration: none
         }
 
-        .card {
+        .card.product_item  {
             background: #fff;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             transition: .5s;
             border: 0;
             border-radius: .55rem;
@@ -70,36 +69,44 @@
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
         }
 
-        .card .body {
+        .card.product_item  .body {
             font-size: 14px;
             color: #424242;
             padding: 20px;
             font-weight: 400;
         }
+        .profile-head {
+            transform: translateY(5rem)
+        }
+
+        .cover {
+            background-size: cover;
+            background-repeat: no-repeat
+        }
     </style>
 </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/6048c4c61c1c2a130d67056d/1f0e41abi';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
 
 <body class="header-sticky">
     <!--Left Side Buttons Start-->	
       <div class="sticky-left-container">
         <ul class="sticky-left">
           <li>
-            <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
+              <a href="tel:+880132 240 5882" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/phone.png') }}"/>
+            <p>Phone</p>
+            </a>
           </li>
-      
+          <li>
+              <a href="https://wa.me/+8801322405881" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" />
+            <p>Whatsapp</p>
+            </a>
+          </li>
+          <li><a href="https://m.me/drobalhealth" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/messenger.svg') }}" />
+            <p>Messenger</p>
+            </a>
+        </li>
       </ul>
     </div>
 <!--Left Side Buttons End-->
@@ -130,7 +137,7 @@
                         <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
                         @guest
                         <li>
-                            <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
+                            <a href="{{ route('login') }}">{{ __('Login')}}</a>
                         </li>
                         @else
                         <li><a href="#">{{ Auth::user()->name }}</a>
@@ -159,63 +166,57 @@
         </div><!-- /.header-inner -->
     </header><!-- /.header -->
 
-    <!-- Page Title -->
-    <div class="page-title text-left">
+   
+
+
+
+    <section class="main-content blog-posts" style="background: #f3f2ef">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="breadcrumbs" style="height: 250px">
-                        <ul>
-                            {{-- <li><a href="{{ url('/homemain') }}">Home</a></li> --}}
-                            {{-- <li><a href="#">Profile</a></li> --}}
-                        </ul>
-                    </div><!-- /.breadcrumbs -->
-                    <div class="page-title-heading">
-                        {{-- <h1 class="title">Profile</h1> --}}
-                    </div><!-- /.page-title-captions -->
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.page-title -->
+                    <div class="post-wrap">
+                        
 
-    <div class="container">
-        <div class="row py-5 px-4">
-            <div class="col-md-12 mx-auto">
-                <!-- Profile widget -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <div class="px-4 pt-0 pb-4 cover">
-                        <div class="media align-items-end profile-head">
-                            <div class="profile mr-3"><img
-                                    src="{{asset($user->avatar)}}"
-                                    alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
-                            <div class="media-body mb-5 text-white">
-                                <h4 class="mt-0 mb-0">{{$user->name}}</h4>
-                                <p class="small mb-0 text-dark"> <i
-                                        class="fas fa-map-marker-alt mr-2"></i>{{$user->speciality}}</p>
-                                <p class="small mb-0 text-dark"> <i
-                                        class="fas fa-map-marker-alt mr-2"></i>{{$user->qualification}}</p>
-                                <p class="small mb-0 text-dark"> <i
-                                        class="fas fa-map-marker-alt mr-2"></i>{{$user->hospital}}</p>
+
+                        <div class="bg-white shadow  overflow-hidden" style="border-top-right-radius: 10px; border-top-left-radius: 10px">
+                            <div class="px-4 pt-0 pb-4 cover" style="background-image: url({{ asset('public/backend/images/dark.jpg') }}); border-top-right-radius: 10px; border-top-left-radius: 10px">
+                                <div class="media align-items-end profile-head">
+                                    <div class="profile mr-3"><img src="{{asset($user->avatar)}}" alt="..." style="height: 180px; width: 180px" class="rounded-circle mb-2 img-thumbnail">
+                                        {{-- <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a> --}}
+                                    </div>
+                                </div>
                             </div>
+                            <div class="bg-white p-4 d-flex justify-content-between mt-5">
+                                <div>
+                                    <p class="mt-0 mb-0" style="font-size: 2.4rem; font-weight:400px">{{$user->name}}</p>
+                                    <p class="mb-0 text-dark mt-3" style="font-size: 1.5rem"> <i
+                                            class="fas fa-map-marker-alt"></i>{{$user->speciality}}</p>
+                                    <p class="mb-0 text-dark mt-2" style="font-size: 1.5rem"> <i
+                                            class="fas fa-map-marker-alt"></i>{{$user->qualification}}</p>
+                                    <p class="mb-0 text-dark mt-2" style="font-size: 1.5rem"> <i
+                                            class="fas fa-map-marker-alt"></i>{{$user->hospital}}</p>
+                                </div>
+                                <ul class="list-inline mb-0 text-center">
+                                    <li class="list-inline-item">
+                                        {{-- <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small> --}}
+                                        <button class="btn mr-2 text-white" style="background: #36a7e3">Book Now</button> 
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                                    
+                           
                         </div>
-                    </div>
-
-                    <div class="px-4 py-3">
-                        <h5 class="mb-0">About</h5>
-                        <div class="p-4 rounded shadow-sm bg-light">
-                            {!! $user->description !!}
-                        </div>
-                    </div>
-                    <div class="py-4 px-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="mb-0">Posts</h5>
-                        </div>
-                        <div class="row">
-                            {{-- <div class="col-lg-6 mb-2 pr-lg-1"><img src="" alt=""
-                                    class="img-fluid rounded shadow-sm"></div> --}}
-                            <link rel="stylesheet"
-                                href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-                            <div class="container">
+                        <div class="bg-white px-4 py-3 mt-3" style="border-radius: 10px">
+                                <h5 class="mb-0">About</h5>
+                                <div class="py-4 rounded shadow-sm">
+                                    {!! $user->description !!}
+                                </div>
+                            </div>
+                        <div class="bg-white px-4 py-3 mt-3" style="border-radius: 10px">
+                                <h5 class="mb-0">Posts</h5>
+                                <div class="py-4 rounded shadow-sm">
+                                   <div class="container">
                                 <div class="row clearfix">
                                     @foreach ($blogs as $blog)
                                     @if ($blog->status=="1")
@@ -238,12 +239,27 @@
                                     @endforeach
                                 </div>
                             </div>
-                        </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div><!-- /.col-md-9 -->
+                
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+
+
+
+
+
+
+    
 
 
     <!-- Footer -->
@@ -254,7 +270,7 @@
                     <div class="col-md-4">
                         <div class="widget widget_text">
                             <div class="textwidget">
-                                <img src="{{ asset('public/frontend/images/logo-footer.png') }}" alt="images">
+                                <img src="{{ asset('public/frontend/images/logo-footer.png') }}" height="80px" width="100%" alt="images">
                                 <p>Lorem ipsum dolor sit amet, consectetur elit. Pellentesque quis nunc turpis.
                                     Phasellus ut aliquam nisl eleifend risus.</p>
                             </div>
@@ -326,12 +342,12 @@
     <!-- Javascript -->
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.easing.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.flexslider-min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-waypoints.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-ui-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.cookie.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.fitvids.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.easing.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.flexslider-min.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-waypoints.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-ui-datepicker.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.cookie.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.fitvids.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/main.js') }}"></script>
 </body>
 

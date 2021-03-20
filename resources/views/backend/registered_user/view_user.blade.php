@@ -19,7 +19,7 @@ body {
 @section('content')
 
 <div class="row py-5 px-4">
-    <div class="col-md-5 mx-auto">
+    <div class="col-md-12 mx-auto">
         <!-- Profile widget -->
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-4 cover">
@@ -30,7 +30,7 @@ body {
                         @else
                             <img src="{{ asset($registeredUser->avatar) }}" alt="img" height="200px" width="200px" class="mb-2 border rounded">
                         @endif
-                        @if(Auth::user()->id === $registeredUser->id)
+                        @if(Auth::user()->id === $registeredUser->id || Auth::user()->user_type == "1")
                         <a class="btn btn-outline-dark btn-sm btn-block" role="button" data-toggle="modal"
                                     data-target="#update_user">Edit Profile</a>
                         @endif

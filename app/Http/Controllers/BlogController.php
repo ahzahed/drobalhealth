@@ -22,9 +22,14 @@ class BlogController extends Controller
     public function index()
     {
         if (Auth::user()->user_type == 1 || Auth::user()->user_type == 2 || Auth::user()->user_type == 0) {
-            $id = Auth::user()->id;
-            $blog = Blog::where('user_id', $id)->get();
-            return view('backend.blog.blog', compact('blog'));
+            if (Auth::user()->user_type == 1) {
+                $blog = Blog::all();
+                return view('backend.blog.blog', compact('blog'));
+            } else {
+                $id = Auth::user()->id;
+                $blog = Blog::where('user_id', $id)->get();
+                return view('backend.blog.blog', compact('blog'));
+            }
         }
         return Redirect()->route('home');
     }
@@ -240,7 +245,8 @@ class BlogController extends Controller
         $value = $blog['priority'] + 1;
         Blog::where('id', $id)->update(['priority' => $value]);
 
-        $limitedBlogs = Blog::where('id', '!=', $id)->limit(8)->get();
+        // $limitedBlogs = Blog::where('id', '!=', $id)->limit(8)->get();
+        $limitedBlogs = Blog::where('id', '!=', $id)->orderByDesc('priority')->limit(8)->get();
         return view('frontend/blog_details', compact('blog', 'limitedBlogs'));
     }
 

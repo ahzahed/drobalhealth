@@ -50,28 +50,29 @@
         <script src="javascript/respond.min.js"></script>
     <![endif]-->
 </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/6048c4c61c1c2a130d67056d/1f0e41abi';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+
 
 <body class="header-sticky">
-    <!--Left Side Buttons Start-->	
+   <!--Left Side Buttons Start-->	
       <div class="sticky-left-container">
         <ul class="sticky-left">
           <li>
-            <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
+              <a href="tel:+880132 240 5882" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/phone.png') }}"/>
+            <p>Phone</p>
+            </a>
           </li>
-      
+          <li>
+              <a href="https://wa.me/+8801322405881" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" />
+            <p>Whatsapp</p>
+            </a>
+          </li>
+          <li><a href="https://m.me/drobalhealth" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/messenger.svg') }}" />
+            <p>Messenger</p>
+            </a>
+        </li>
       </ul>
     </div>
 <!--Left Side Buttons End-->
@@ -102,7 +103,7 @@
                         <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
                         @guest
                         <li>
-                            <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
+                            <a href="{{ route('login') }}">{{ __('Login')}}</a>
                         </li>
                         @else
                         <li><a href="#">{{ Auth::user()->name }}</a>
@@ -161,7 +162,7 @@
                                 <div class="type-post">
                                 </div><!-- /.type-post -->
                                 <div class="entry-image">
-                                    <img src="{{asset($blog->image)}}" style="height: 450px; width: 100%" alt="image">
+                                    <img src="{{asset($blog->image)}}" style="height: 380px; width: 100%" alt="image">
                                 </div><!-- /.entry-image -->
                             </div><!-- /.feature-post -->
 
@@ -171,10 +172,10 @@
                                 </h2>
                                 <div class="entry-meta">
                                     <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
-                                    <span class="author"><a
+                                    <span class="author font-weight-bold"><a class="font-weight-bold"
                                             href="{{ url('posted_by/'.Crypt::encrypt($blog->user->id)) }}">{{
                                             $blog->user->name }}</a></span>
-                                    <span class="comment"><a href="#">{{ $blog->user->qualification }}</a></span>
+                                    <span class="comment font-weight-bold"><a class="font-weight-bold" href="#">{{ $blog->user->qualification }}</a></span>
                                       <p class="p-0 m-0"><i class="fas fa-hospital-alt pr-1"></i> {{ $blog->user->hospital }}</p>
                                 </div><!-- /.entry-meta -->
 

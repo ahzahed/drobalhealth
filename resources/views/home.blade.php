@@ -51,33 +51,33 @@
     <![endif]-->
 </head>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/6048c4c61c1c2a130d67056d/1f0e41abi';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+
 
 <body class="page-template-front-page header-sticky home">
 
-    <!--Left Side Buttons Start-->
-    <div class="sticky-left-container">
+    <!--Left Side Buttons Start-->	
+      <div class="sticky-left-container">
         <ul class="sticky-left">
-            <li>
-                <a href="https://wa.me/+8801322405881"><img width="60" height="60" title="" alt=""
-                        src="{{ asset('public/frontend/icon/whatsapp.png') }}" /></a>
-            </li>
-
-        </ul>
+          <li>
+              <a href="tel:+880132 240 5882" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/phone.png') }}"/>
+            <p>Phone</p>
+            </a>
+          </li>
+          <li>
+              <a href="https://wa.me/+8801322405881" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/whatsapp.png') }}" />
+            <p>Whatsapp</p>
+            </a>
+          </li>
+          <li><a href="https://m.me/drobalhealth" class="text-white">
+            <img width="32" height="32" title="" alt="" src="{{ asset('public/frontend/icon/messenger.svg') }}" />
+            <p>Messenger</p>
+            </a>
+        </li>
+      </ul>
     </div>
-    <!--Left Side Buttons End-->
+<!--Left Side Buttons End-->
 
     <div class="loader">
         <span class="loader1 block-loader"></span>
@@ -113,7 +113,7 @@
                             <li><a href="#contact">Contact</a></li>
                             @guest
                             <li>
-                                <span><a href="{{ route('login') }}">{{ __('Login')}}</a></span>
+                                <a href="{{ route('login') }}">{{ __('Login')}}</a>
                             </li>
                             @else
                             <li><a href="#">{{ Auth::user()->name }}</a>
@@ -370,89 +370,77 @@
             </section>
 
 
-            <section class="container">
+            <section class="container" id="services">
                 <div class="title-section desc mb-0 mt-5">
                     <h1 class="title" data-text="S">Our<span>Services</span></h1>
-                    <div class="desc mb-5">Lorem ipsum dolor sit amet sed tincidunt suscipit id malesuada.</div>
                 </div><!-- /.title-section -->
                 <div class="row">
                     
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
-                            <h3 class="title">Regular follow up by Local doctors</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-stethoscope"></i></div>
+                            <h3 class="title" style="color: white">Regular follow up by Local doctors</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-ticket-alt"></i></div>
-                            <h3 class="title">Visa invitation, Visa & Ticketing services</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-ticket-alt"></i></div>
+                            <h3 class="title" style="color: white">Visa invitation, Visa & Ticketing services</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-map-pin"></i></div>
-                            <h3 class="title">Local sightseeing arrangements</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-map-pin"></i></div>
+                            <h3 class="title" style="color: white">Local sightseeing arrangements</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fa fa-rocket"></i></div>
-                            <h3 class="title">Stay arrangements</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fa fa-rocket"></i></div>
+                            <h3 class="title" style="color: white">Stay arrangements</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-capsules"></i></div>
-                            <h3 class="title">Medicine from India</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-capsules"></i></div>
+                            <h3 class="title" style="color: white">Medicine from India</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-language"></i></div>
-                            <h3 class="title">Multilingual Translator services</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-language"></i></div>
+                            <h3 class="title" style="color: white">Multilingual Translator services</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-user-clock"></i></div>
-                            <h3 class="title">24*7 support services</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-user-clock"></i></div>
+                            <h3 class="title" style="color: white">24*7 support services</h3>
                         </div>
                     </div>
                  
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                            <h3 class="title">Teleconsultation with Best Indian Specialist Doctors</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-mobile-alt"></i></div>
+                            <h3 class="title" style="color: white">Teleconsultation with Best Indian Specialist Doctors</h3>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-user-md"></i></div>
-                            <h3 class="title">Treatment Guidance from Professional Doctors</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-user-md"></i></div>
+                            <h3 class="title" style="color: white">Treatment Guidance from Professional Doctors</h3>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 mb-2">
+                    <div class="col-md-4 col-sm-6 mb-5">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-file-prescription"></i></div>
-                            <h3 class="title">Follow up consultation with Indian doctors after procedure</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-file-prescription"></i></div>
+                            <h3 class="title" style="color: white">Follow up consultation with Indian doctors after procedure</h3>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 mb-2">
+                    <div class="col-md-4 col-sm-6 mb-5">
                         <div class="serviceBox">
-                            <div class="service-icon"><i class="fas fa-child"></i></div>
-                            <h3 class="title">Family members/attender's whole body checkup</h3>
-                            <p class="description text-justify">Lorem ipsum dolor dal sit amet, consectetur halam adipisicing elit. Accusantium consequuntur, deleniti eaque excepturi.</p>
+                            <div class="service-icon" style="color: white"><i class="fas fa-child"></i></div>
+                            <h3 class="title" style="color: white">Family members/attender's whole body checkup</h3>
                         </div>
                     </div>
                     
