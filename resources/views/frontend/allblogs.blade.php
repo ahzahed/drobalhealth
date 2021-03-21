@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="post-wrap">
-                        @foreach ($blogs as $blog)
+                        @forelse ($blogs as $blog)
                         @if ($blog->status=="1")
                         <article class="entry format-standard">
                             <div class="feature-post">
@@ -189,9 +189,11 @@
                             </div><!-- /.main-post -->
                         </article>
                         @endif
-                        @endforeach
+                        @empty
+                        <p>No results found for query <strong>{{request()->query('search')}}</strong></p>
+                        @endforelse
 
-                        {{ $blogs->links("frontend.blogpaginate") }}
+                        {{ $blogs->appends(['search'=>request()->query('search')])->links("frontend.blogpaginate") }}
 
                     </div>
                 </div><!-- /.col-md-9 -->
@@ -199,9 +201,9 @@
                     <div class="sidebar">
                         <div class="widget widget-search">
                             <h5 class="widget-title">Search The Blogs</h5>
-                            <form action="#" id="searchform" method="get">
+                            <form action="{{route('front_all_blogs')}}" id="searchform" method="get">
                                 <div>
-                                    <input type="text" id="s" class="sss" placeholder="Search blog ... ">
+                                    <input name="search" value="{{request()->query('search')}}" type="text" id="s" class="sss" placeholder="Search blog ... ">
                                     <input type="submit" value="&#xf002;" id="searchsubmit">
                                 </div>
                             </form>

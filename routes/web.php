@@ -99,3 +99,7 @@ Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload'
 //Crop Image
 Route::get('image-cropper', 'CKEditorController@index');
 Route::post('image-cropper/upload', 'CKEditorController@cropedupload');
+
+
+//Search
+// Route::get('/search','ContactController@search');

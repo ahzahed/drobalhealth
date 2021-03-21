@@ -184,7 +184,7 @@
                                 </div><!-- /.entry-post -->
                                 <div class="clearfix"></div>
 
-                                <div class="wrap-share">
+                                {{-- <div class="wrap-share">
                                     <h5>Share: </h5>
                                     <div class="share-post">
                                         <ul class="flat-socials">
@@ -207,7 +207,7 @@
                                     </div>
 
 
-                                </div><!-- /.wrap-share -->
+                                </div><!-- /.wrap-share --> --}}
                             </div><!-- /.main-post -->
                         </article>
                     </div><!-- /.post-wrap -->
@@ -217,9 +217,9 @@
                     <div class="sidebar">
                         <div class="widget widget-search">
                             <h5 class="widget-title">Search The Blogs</h5>
-                            <form action="#" id="searchform" method="get">
+                            <form action="{{route('front_all_blogs')}}" id="searchform" method="get">
                                 <div>
-                                    <input type="text" id="s" class="sss" placeholder="Search blog ... ">
+                                    <input name="search" type="text" id="s" class="sss" placeholder="Search blog ... ">
                                     <input type="submit" value="&#xf002;" id="searchsubmit">
                                 </div>
                             </form>

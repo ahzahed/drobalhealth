@@ -1,11 +1,11 @@
 @extends('backend.app')
 <style>
-    .profile-head {
+.profile-head {
     transform: translateY(5rem)
 }
 
 .cover {
-    background-image: url({{ asset('public/backend/images/dark.jpg') }});
+    /* background-image: url({{ asset('public/backend/images/dark.jpg') }}); */
     background-size: cover;
     background-repeat: no-repeat
 }
@@ -15,51 +15,73 @@ body {
     background: linear-gradient(to right, #e96443, #904e95);
     min-height: 100vh
 }
+
+@media screen and (min-width: 768px) {
+  .responsive {
+    /* background-color: lightgreen; */
+    padding-left: 10px;
+    padding-right: 10px
+  }
+}
 </style>
 @section('content')
 
-<div class="row py-5 px-4">
-    <div class="col-md-12 mx-auto">
-        <!-- Profile widget -->
-        <div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover">
-                <div class="media align-items-end profile-head">
-                    <div class="profile mr-3">
-                        @if ($registeredUser->avatar == NULL)
-                            <img src="{{ asset('public/backend/images/avatar-default.png') }}" alt="img" height="200px" width="200px" class="rounded mb-2 img-thumbnail">
-                        @else
-                            <img src="{{ asset($registeredUser->avatar) }}" alt="img" height="200px" width="200px" class="mb-2 border rounded">
-                        @endif
-                        @if(Auth::user()->id === $registeredUser->id || Auth::user()->user_type == "1")
-                        <a class="btn btn-outline-dark btn-sm btn-block" role="button" data-toggle="modal"
-                                    data-target="#update_user">Edit Profile</a>
-                        @endif
+
+{{-- <section class="main-content blog-posts" style="background: #f3f2ef"> --}}
+        {{-- <div class="container"> --}}
+            <div class="row responsive">
+                <div class="col-md-12">
+                    <div class="post-wrap">
+                        
+                        <div class="bg-white shadow  overflow-hidden" style="border-top-right-radius: 10px; border-top-left-radius: 10px">
+                            <div class="px-4 pt-0 pb-4 cover" style="background-image: url({{ asset('public/backend/images/dark.jpg') }}); border-top-right-radius: 10px; border-top-left-radius: 10px">
+                                <div class="media align-items-end profile-head">
+                                    <div class="profile mr-3"><img src="{{asset($registeredUser->avatar)}}" alt="..." style="height: 180px; width: 180px" class="rounded-circle mb-2 img-thumbnail">
+                                        {{-- <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="container"> --}}
+                                <div class="row bg-white p-4 d-flex mt-5">
+                                    <div class="col-md-8 col-sm-12">
+                                        <p class="mt-0" style="font-size: 2.4rem; font-weight:400px">{{$registeredUser->name}}</p>
+                                        <p class="mb-0 text-dark mt-3" style="font-size: 1.3rem"><i class="fas fa-envelope"></i> {{$registeredUser->email}}</p>
+                                        <p class="mb-0 text-dark mt-2" style="font-size: 1.3rem"><i class="fas fa-briefcase-medical"></i> {{$registeredUser->speciality}}</p>
+                                        <p class="mb-0 text-dark mt-2" style="font-size: 1.3rem"><i class="fas fa-graduation-cap"></i> {{$registeredUser->qualification}}</p>
+                                        <p class="mb-0 text-dark mt-2" style="font-size: 1.3rem"><i class="fas fa-hospital-alt"></i> {{$registeredUser->hospital}}</p>
+                                    </div>
+                                    <div class="col-md-4 col-sm-0 mt-2">
+                                        <ul class="list-inline mb-0 text-center">
+                                            <li class="list-inline-item">
+                                                {{-- <h5 class="font-weight-bold mb-0 d-block">{{$blogs}}</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Blogs Posted</small> --}}
+                                                @if(Auth::user()->id === $registeredUser->id || Auth::user()->user_type == "1")
+                                                <a class="btn bg-primary text-white" role="button" data-toggle="modal"
+                                                            data-target="#update_user">Edit Profile</a>
+                                                @endif
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {{-- </div> --}}
+                            
+                                    
+                           
+                        </div>
+                        <div class="bg-white px-4 py-3 mt-3 mb-5" style="border-radius: 10px; color: black">
+                            <h5 class="mb-0">About</h5>
+                            <div class="py-4 rounded">
+                                {!! $registeredUser->description !!}
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0"> {{ $registeredUser->name }}</h4>
-                        <p class="medium mb-0"> {{ $registeredUser->email }}</p>
-                        <p class="medium mb-0"> {{ $registeredUser->speciality }}</p>
-                        <p class="medium mb-0"> {{ $registeredUser->qualification }}</p>
-                        <p class="medium mb-3"> {{ $registeredUser->hospital }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-light p-4 d-flex justify-content-end text-center">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">{{$blogs}}</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Blogs Posted</small>
-                    </li>
-                </ul>
-            </div>
-            <div class="px-4 py-3">
-                <h5 class="mb-0">About</h5>
-                <div class="p-4 rounded shadow-sm bg-light">
-                    {!! $registeredUser->description !!}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </div><!-- /.col-md-9 -->
+                
+            </div><!-- /.row -->
+        {{-- </div><!-- /.container --> --}}
+    {{-- </section> --}}
+
+
+
 
 <!-- Head Information Modal Start -->
 <div class="pro-edit-modal">

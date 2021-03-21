@@ -252,6 +252,13 @@ class BlogController extends Controller
 
     function front_all_blogs()
     {
+        $search = request()->query("search");
+        if ($search) {
+            $blogs = Blog::where('title', 'LIKE', '%'.$search.'%')->paginate(15);
+            $limitedBlogs = Blog::orderByDesc('priority')->limit(8)->get();
+            return view('frontend/allblogs', compact('blogs', 'limitedBlogs'));
+        }
+ 
         $blogs = Blog::paginate(15);
         $limitedBlogs = Blog::orderByDesc('priority')->limit(8)->get();
         return view('frontend/allblogs', compact('blogs', 'limitedBlogs'));

@@ -24,6 +24,10 @@
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/postedby.css') }}">
 
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/fontawesome/css/fontawesome.min.css') }}">
+
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/stylesheets/responsive.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
@@ -186,22 +190,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-white p-4 d-flex justify-content-between mt-5">
-                                <div>
-                                    <p class="mt-0 mb-0" style="font-size: 2.4rem; font-weight:400px">{{$user->name}}</p>
-                                    <p class="mb-0 text-dark mt-3" style="font-size: 1.5rem"> <i
-                                            class="fas fa-map-marker-alt"></i>{{$user->speciality}}</p>
-                                    <p class="mb-0 text-dark mt-2" style="font-size: 1.5rem"> <i
-                                            class="fas fa-map-marker-alt"></i>{{$user->qualification}}</p>
-                                    <p class="mb-0 text-dark mt-2" style="font-size: 1.5rem"> <i
-                                            class="fas fa-map-marker-alt"></i>{{$user->hospital}}</p>
+                            <div class="container">
+                                <div class="row bg-white p-4 d-flex mt-5">
+                                <div class="col-md-10 col-sm-12">
+                                    <p class="mt-0" style="font-size: 2rem; font-weight:400px">{{$user->name}}</p>
+                                    <p class="mb-0 text-dark mt-3" style="font-size: 1.3rem"><i class="fas fa-briefcase-medical"></i> {{$user->speciality}}</p>
+                                    <p class="mb-0 text-dark mt-2" style="font-size: 1.3rem"><i class="fas fa-graduation-cap"></i> {{$user->qualification}}</p>
+                                    <p class="mb-0 text-dark mt-2" style="font-size: 1.3rem"><i class="fas fa-hospital-alt"></i> {{$user->hospital}}</p>
                                 </div>
-                                <ul class="list-inline mb-0 text-center">
-                                    <li class="list-inline-item">
-                                        {{-- <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small> --}}
-                                        <button class="btn mr-2 text-white" style="background: #36a7e3">Book Now</button> 
-                                    </li>
-                                </ul>
+                                <div class="col-md-2 col-sm-0 mt-2">
+                                    <ul class="list-inline mb-0 text-center">
+                                        <li class="list-inline-item">
+                                            {{-- <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small> --}}
+                                            <button class="btn mr-2 text-white" style="background: #36a7e3">Book Now</button> 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             </div>
                             
                                     
