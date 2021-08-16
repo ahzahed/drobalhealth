@@ -770,31 +770,43 @@
             pauseOnHover: false,
             responsive: [
                 {
-                    breakpoint: 1400,
+                    breakpoint: 2500,
                     settings: {
                         slidesToShow: 5,
                     },
                 },
                 {
-                    breakpoint: 1200,
+                    breakpoint: 1900,
                     settings: {
                         slidesToShow: 4,
                     },
                 },
                 {
-                    breakpoint: 992,
+                    breakpoint: 1400,
                     settings: {
                         slidesToShow: 3,
                     },
                 },
                 {
-                    breakpoint: 768,
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                    },
+                },
+                {
+                    breakpoint: 992,
                     settings: {
                         slidesToShow: 2,
                     },
                 },
                 {
-                    breakpoint: 520,
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+                {
+                    breakpoint: 575,
                     settings: {
                         slidesToShow: 1,
                     },

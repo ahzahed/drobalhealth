@@ -115,60 +115,61 @@
     </div>
 <!--Left Side Buttons End-->
 
-    <!-- Header -->
-    <header id="header" class="header style1 clearfix">
-        <div class="header-inner">
-            <div id="logo" class="logo">
-                <a href="{{ url('/homemain') }}" rel="home">
-                    <img src="{{ asset('public/frontend/images/logo.png') }}" style="height: 55px; width: 180px"
-                        alt="Drobal Health Logo">
-                </a>
-            </div><!-- /.logo -->
-            <div class="nav-wrap">
-                <div class="btn-menu open"></div><!-- //mobile menu button -->
-                <nav id="mainnav" class="mainnav">
-                    <ul class="menu">
-                        <li class="home">
-                            <a href="{{ url('/homemain') }}">Home</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/homemain') }}"><img src="{{ asset('public/frontend/images/logo.png') }}" alt="Drobal Health Logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-uppercase font-weight-bold">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/homemain') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li><a href="#blog">Blog</a>
-                            <ul class="submenu">
-                                <li><a href="{{ route('front_all_blogs') }}">Blogs </a></li>
-                            </ul><!-- /.submenu -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('front_all_blogs') }}">Blogs</a>
                         </li>
-                           <li><a href="{{ url('/homemain'.'#services') }}">Services</a></li>
-                        <li><a href="{{ url('/homemain'.'#about') }}">About</a></li>
-                        <li><a href="{{ url('/homemain'.'#contact') }}">Contact</a></li>
-                        @guest
-                        <li>
-                            <a href="{{ route('login') }}">{{ __('Login')}}</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/homemain'.'#doctor') }}">Our Doctors</a>
                         </li>
-                        @else
-                        <li><a href="#">{{ Auth::user()->name }}</a>
-                            <ul class="submenu" style="width: 100%">
-                                <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/homemain'.'#contact') }}">Contact</a>
+                        </li>
+                         @guest
+                            <li>
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                            @else
+                            <li>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: initial">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                </li>
-                                {{-- @if (Auth::user()->user_type=="0")
-                                <a href="#">Home</a> --}}
-                                @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2" || Auth::user()->user_type=="0")
-                                <li><a href="{{ route('home') }}">Admin Panel</a></li>
-                                @endif
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </ul>
-                        </li>
+                                            {{ __('Logout') }}</a>
+                                            @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2" ||
+                                    Auth::user()->user_type=="0")
+
+
+                                    <a class="dropdown-item" href="{{ route('home') }}">Admin Panel</a>
+                                    @endif
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                         @endguest
-                    </ul><!-- /.menu -->
-                </nav><!-- /.mainnav -->
-            </div><!-- /.nav-wrap -->
-        </div><!-- /.header-inner -->
-    </header><!-- /.header -->
+                        <li class="nav-item">
+                            {{-- <a class="nav-link btn btn-primary te" href="{{ url('/homemain'.'#contact') }}">Contact</a> --}}
+                            <button class="btn btn-primary">Book Now</button>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
    
 
@@ -259,69 +260,76 @@
         </div><!-- /.container -->
     </section>
 
-
-
-
-
-
-    
-
-
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-widgets">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="widget widget_text">
-                            <div class="textwidget">
-                                <img src="{{ asset('public/frontend/images/logo-footer.png') }}" height="80px" width="100%" alt="images">
-                                <p>Lorem ipsum dolor sit amet, consectetur elit. Pellentesque quis nunc turpis.
-                                    Phasellus ut aliquam nisl eleifend risus.</p>
+        <footer class="footer">
+            <div class="footer-widgets">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="widget widget_text">
+                                <div class="textwidget">
+                                    <img src="{{ asset('public/frontend/images/logo-footer.png') }}" alt="Drobal Health Footer">
+                                    <p class="text-justify">Drobalhealth is the first Blogging website in Bangladesh that is completely focused on providing genuine information about treatment, medicine & health issues. This is an informative and educational website, from our website you can learn about the Healthcare industry. Providing premium content about doctors, medical technology and medicine is our main goal.</p>
+                                </div>
+                            </div><!-- /.widget -->
+                        </div><!-- /.col-md-4 -->
+
+                        <div class="col-md-3">
+                            <div class="widget widget_text">
+                                <h5 class="widget-title">Branch Office 1: </h5>
+                                <div class="textwidget">
+                                    <p>
+                                        House-02, Road-01, Block-C, Section-02, Mirpur-02, Dhaka-1216<br>
+
+                                        <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
+                                            drobal.mt@gmail.com</a>
+                                        <br>
+
+                                        <a href="tel:+880132 240 5882" style="color: #858585">Phone: 0132 240 5882-5</a>
+                                    </p>
+                                </div>
+                            </div><!-- /.widget -->
+                        </div><!-- /.col-md-4 -->
+                        <div class="col-md-3">
+                            <div class="widget widget_text">
+                                <h5 class="widget-title">Branch Office 2: </h5>
+                                <div class="textwidget">
+                                    <p>
+                                        Suite #357, Level #03, VIP Tower, Kazir Dewri, Chattogram, Bangladesh<br>
+
+                                        <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
+                                            drobal.mt@gmail.com</a>
+                                        <br>
+
+                                        <a href="tel:+880132 240 5882" style="color: #858585">Phone: 0132 240 5882-5</a>
+                                    </p>
+                                </div>
+                            </div><!-- /.widget -->
+                        </div><!-- /.col-md-4 -->
+
+                        {{-- <div class="col-md-4">
+                            <div class="widget widget_text">
+                                <h5 class="widget-title">Working Hours</h5>
+                                <div class="textwidget">
+                                    <p>
+                                        Monday to Friday: 08:00 AM - 17:00 pm<br>
+                                        Saturday: 09:00 AM - 15:00 pm<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
                             </div>
-                        </div><!-- /.widget -->
-                    </div><!-- /.col-md-4 -->
+                        </div> --}}
 
-                    <div class="col-md-4">
-                        <div class="widget widget_text">
-                            <h5 class="widget-title">Contact us</h5>
-                            <div class="textwidget">
-                                <p>
-                                    Adress: House-1, Road-1, Gate-5, Block-B, Lalmatia, Dhaka.<br>
-                                    
-                                    <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
-                                        drobal.mt@gmail.com</a>
-                                    <br>
-                                 
-                                    <a href="tel:+880132 240 5882" style="color: #858585">Phone: 0132 240 5882-5</a>
-                                </p>
-                            </div>
-                        </div><!-- /.widget -->
-                    </div><!-- /.col-md-4 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.footer-widgets -->
 
-                    <div class="col-md-4">
-                        <div class="widget widget_text">
-                            <h5 class="widget-title">Working Hours</h5>
-                            <div class="textwidget">
-                                <p>
-                                    Monday to Friday: 08:00 AM - 17:00 pm<br>
-                                    Saturday: 09:00 AM - 15:00 pm<br>
-                                    Sunday: Closed
-                                </p>
-                            </div>
-                        </div><!-- /.widget -->
-                    </div><!-- /.col-md-4 -->
+            <!-- Go Top -->
+            <a class="go-top style1">
+                <i class="zmdi zmdi-long-arrow-up"></i>
+            </a>
 
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.footer-widgets -->
-
-        <!-- Go Top -->
-        <a class="go-top style1">
-            <i class="zmdi zmdi-long-arrow-up"></i>
-        </a>
-
-    </footer>
+        </footer>
 
     <!-- Bottom -->
         <div class="bottom">

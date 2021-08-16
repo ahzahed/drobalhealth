@@ -87,135 +87,61 @@
     <!-- Boxed -->
     <div class="boxed">
 
-        <!-- Header -->
-        <header id="header" class="header style1 clearfix">
-            <div class="header-inner">
-                <div id="logo" class="logo">
-                    <a href="{{ url('/homemain') }}" rel="home">
-                        <img src="{{ asset('public/frontend/images/logo.png') }}" style="height: 55px; width: 180px"
-                            alt="Drobal Health Logo">
-                    </a>
-                </div><!-- /.logo -->
-                <div class="nav-wrap">
-                    <div class="btn-menu open"></div><!-- //mobile menu button -->
-                    <nav id="mainnav" class="mainnav">
-                        <ul class="menu">
-                            <li class="home">
-                                <a href="{{ url('/homemain') }}">Home</a>
-                            </li>
-                            <li><a href="#blog">Blog</a>
-                                <ul class="submenu">
-                                    <li><a href="{{ route('front_all_blogs') }}">Blogs </a></li>
-                                </ul><!-- /.submenu -->
-                            </li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            @guest
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/homemain') }}"><img src="{{ asset('public/frontend/images/logo.png') }}" alt="Drobal Health Logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-uppercase font-weight-bold">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/homemain') }}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('front_all_blogs') }}">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#doctor">Our Doctors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                         @guest
                             <li>
-                                <a href="{{ route('login') }}">{{ __('Login')}}</a>
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
                             </li>
                             @else
-                            <li><a href="#">{{ Auth::user()->name }}</a>
-                                <ul class="submenu" style="width: 100%">
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <li>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: initial">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                    </li>
-                                    {{-- @if (Auth::user()->user_type=="0")
-                                    <a href="#">Home</a> --}}
-                                    @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2" ||
+                                            {{ __('Logout') }}</a>
+                                            @if (Auth::user()->user_type=="1" || Auth::user()->user_type=="2" ||
                                     Auth::user()->user_type=="0")
-                                    <li><a href="{{ route('home') }}">Admin Panel</a></li>
+
+
+                                    <a class="dropdown-item" href="{{ route('home') }}">Admin Panel</a>
                                     @endif
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                         style="display: none;">
                                         @csrf
                                     </form>
-                                </ul>
+                                </div>
                             </li>
-                            @endguest
-                        </ul><!-- /.menu -->
-                    </nav><!-- /.mainnav -->
-                </div><!-- /.nav-wrap -->
-            </div><!-- /.header-inner -->
-        </header><!-- /.header -->
-
-        <!-- Slider -->
-        <div class="tp-banner-container">
-            <div class="tp-banner">
-                <ul>
-                    <li data-transition="slideup" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                        <img src="{{ asset('public/frontend/images/slides/1.jpg') }}" alt="slider-image" />
-
-                        <div class="tp-caption sfl flat-title-slider" data-x="15" data-y="276" data-speed="1000"
-                            data-start="1000" data-easing="Power3.easeInOut">Achiteve Your <br> Desired Perfect
-                            <br>Smile
-                        </div>
-
-                        <div class="tp-caption sfl flat-content-slider" data-x="15" data-y="580" data-speed="1000"
-                            data-start="1500" data-easing="Power3.easeInOut">A full range of cosmetic dentistry
-                            treatment <br>to improve Your smile!</div>
-
-                        <div class="tp-caption sfl flat-button" data-x="15" data-y="682" data-speed="1000"
-                            data-start="2000" data-easing="Power3.easeInOut"><a href="#">Appointment<i
-                                    class="material-icons">edit</i></a></div>
-
-                        <div class="tp-caption flat-scroll-btn animated bounce" data-x="585" data-y="953"><i
-                                class="icon-mouse icons"></i></div>
-
-                    </li>
-
-                    <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000"
-                        data-saveperformance="on">
-                        <img src="{{ asset('public/frontend/images/slides/2.jpg') }}" alt="slider-image" />
-
-                        <div class="tp-caption sfb flat-subtitle-slider" data-x="15" data-y="322" data-speed="1000"
-                            data-start="1000" data-easing="Power3.easeInOut">Improve Your </div>
-
-                        <div class="tp-caption sft flat-title-slider style1" data-x="15" data-y="382" data-speed="1000"
-                            data-start="1500" data-easing="Power3.easeInOut">
-                            DENTAL HEALTH</div>
-
-                        <div class="tp-caption sfl flat-content-slider style1" data-x="15" data-y="518"
-                            data-speed="1000" data-start="2000" data-easing="Power3.easeInOut">The Latest Trends In
-                            Esthetic Dental Care</div>
-
-                        <div class="tp-caption sfl flat-button" data-x="15" data-y="596" data-speed="1000"
-                            data-start="2500" data-easing="Power3.easeInOut"><a href="#">Appointment<i
-                                    class="material-icons">edit</i></a></div>
-
-                        <div class="tp-caption flat-scroll-btn animated bounce" data-x="585" data-y="953"><i
-                                class="icon-mouse icons"></i></div>
-
-                    </li>
-
-                    <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1000"
-                        data-saveperformance="on">
-                        <img src="{{ asset('public/frontend/images/slides/3.jpg') }}" alt="slider-image" />
-
-                        <div class="tp-caption sfl flat-subtitle-slider3" data-x="390" data-y="366" data-speed="1000"
-                            data-start="1000" data-easing="Power3.easeInOut">High Quality Of Dantal Care</div>
-
-                        <div class="tp-caption sfl flat-title-slider3" data-x="210" data-y="422" data-speed="1000"
-                            data-start="1500" data-easing="Power3.easeInOut">Welcome to <span>Medicare</span></div>
-
-                        <div class="tp-caption sfl flat-button border-white" data-x="400" data-y="603" data-speed="1000"
-                            data-start="2000" data-easing="Power3.easeInOut"><a href="#">view detail<i
-                                    class="material-icons">chevron_right</i></a></div>
-
-                        <div class="tp-caption sfr flat-button border-white" data-x="589" data-y="603" data-speed="1000"
-                            data-start="2000" data-easing="Power3.easeInOut"><a href="#">Appointment<i
-                                    class="material-icons">edit</i></a></div>
-
-                        <div class="tp-caption flat-scroll-btn animated bounce" data-x="585" data-y="953"><i
-                                class="icon-mouse icons"></i></div>
-                    </li>
-                </ul>
+                        @endguest
+                        <li class="nav-item">
+                            <button class="btn btn-primary">Book Now</button>
+                        </li>     
+                    </ul>
+                </div>
             </div>
-        </div>
+        </nav>
 
         <!-- Entry Page -->
         <div class="entry-page">
@@ -321,14 +247,14 @@
                     <div class="row">
                         @foreach ($blogs as $blog)
                         @if ($blog->status=="1")
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-2">
                             <div class="flat-latest-blog">
                                 <article class="entry format-standard">
                                     <div class="feature-post">
                                         <div class="type-post">
                                         </div><!-- /.type-post -->
                                         <div class="entry-image">
-                                            <img src="{{$blog->image}}" style="height: 350px; width: 100%"
+                                            <img src="{{$blog->image}}" style="height: 350px; width: 100%;"
                                                 alt="{{ $blog->title }}">
                                         </div><!-- /.entry-image -->
                                     </div><!-- /.feature-post -->
@@ -338,12 +264,14 @@
                                                 href="{{ url('blog_details/'.Crypt::encrypt($blog->id)) }}">{{
                                                 $blog->title }}</a></h2>
                                         <div class="entry-meta">
-                                            <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
+                                            {{-- <span class="date">{{ $blog->created_at->diffForHumans() }}</span> --}}
                                             <span class="author font-weight-bold"><a class="font-weight-bold"
                                                     href="{{ url('posted_by/'.Crypt::encrypt($blog->user->id)) }}">{{
                                                     $blog->user->name }}</a></span>
-                                            <span class="comment font-weight-bold"><a href="#" class="font-weight-bold">{{ $blog->user->qualification
-                                                    }}</a></span>
+                                            {{-- <span class="comment font-weight-bold"><a href="#" class="font-weight-bold">{{ $blog->user->qualification
+                                                    }}</a></span> --}}
+                                                    <p class="p-0 m-0"><i class="fas fa-user-md pr-1"></i> {{
+                                                $blog->user->qualification }}</p>
                                             <p class="p-0 m-0"><i class="fas fa-hospital-alt pr-1"></i> {{
                                                 $blog->user->hospital }}</p>
                                             {{-- <span class="vote"><a href="#">20</a></span> --}}
@@ -470,10 +398,10 @@
                         <a href="{{ url('posted_by/'.Crypt::encrypt($user->id)) }}">
                             <div class="slide text-center">
                                 <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{ asset($user->avatar) }}"
-                                        alt="" style="height: 185px; width: 185px; margin:auto"
+                                        alt="" style="height: 185px; width: 185px; margin:auto; object-fit:cover"
                                         class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                                     <h5 class="mb-0">{{$user->name}}</h5><span
-                                        class="large text-uppercase text-dark">{{$user->qualification}}</span><br>
+                                        class="text-uppercase text-white badge badge-info">{{$user->qualification}}</span><br>
                                     <span class="small text-uppercase text-muted">{{$user->speciality}}</span><br>
                                     <span class="small text-uppercase text-muted">{{$user->hospital}}</span>
 
@@ -494,9 +422,10 @@
                     <div class="row">
                         <div class="col-md-6 col-nopad">
                             {{-- <div id="map" style="width: 100%; height: 634px; "></div> --}}
-                            <iframe
+                            {{-- <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.7603742291385!2d90.36625026536274!3d23.755923044481314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf51340c1c4b%3A0xc6e3200844f0857d!2sLalmatia%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1615270711300!5m2!1sen!2sbd"
-                                width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1535.354802561875!2d90.36873003143586!3d23.757729041133693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf20eceb0df5%3A0x79f7a4ceafbcbf8!2sDrobal%20Marketing%20%26%20Trading!5e0!3m2!1sen!2sbd!4v1616594751907!5m2!1sen!2sbd" width="100%" height="600px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div><!-- /.col-md-6 -->
                         <div class="col-md-6">
                             <div class="flat-divider d100px"></div>
@@ -565,22 +494,37 @@
             <div class="footer-widgets">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="widget widget_text">
                                 <div class="textwidget">
-                                    <img src="{{ asset('public/frontend/images/logo-footer.png') }}" alt="images">
-                                    <p>Lorem ipsum dolor sit amet, consectetur elit. Pellentesque quis nunc turpis.
-                                        Phasellus ut aliquam nisl eleifend risus.</p>
+                                    <img src="{{ asset('public/frontend/images/logo-footer.png') }}" alt="Drobal Health Footer">
+                                    <p class="text-justify">Drobalhealth is the first Blogging website in Bangladesh that is completely focused on providing genuine information about treatment, medicine & health issues. This is an informative and educational website, from our website you can learn about the Healthcare industry. Providing premium content about doctors, medical technology and medicine is our main goal.</p>
                                 </div>
                             </div><!-- /.widget -->
                         </div><!-- /.col-md-4 -->
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="widget widget_text">
-                                <h5 class="widget-title">Contact us</h5>
+                                <h5 class="widget-title">Branch Office 1: </h5>
                                 <div class="textwidget">
                                     <p>
-                                        Adress: House-1, Road-1, Gate-5, Block-B, Lalmatia, Dhaka.<br>
+                                        House-02, Road-01, Block-C, Section-02, Mirpur-02, Dhaka-1216<br>
+
+                                        <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
+                                            drobal.mt@gmail.com</a>
+                                        <br>
+
+                                        <a href="tel:+880132 240 5882" style="color: #858585">Phone: 0132 240 5882-5</a>
+                                    </p>
+                                </div>
+                            </div><!-- /.widget -->
+                        </div><!-- /.col-md-4 -->
+                        <div class="col-md-3">
+                            <div class="widget widget_text">
+                                <h5 class="widget-title">Branch Office 2: </h5>
+                                <div class="textwidget">
+                                    <p>
+                                        Suite #357, Level #03, VIP Tower, Kazir Dewri, Chattogram, Bangladesh<br>
 
                                         <a href="mailto:drobal.mt@gmail.com" style="color: #858585">Email:
                                             drobal.mt@gmail.com</a>
@@ -592,7 +536,7 @@
                             </div><!-- /.widget -->
                         </div><!-- /.col-md-4 -->
 
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="widget widget_text">
                                 <h5 class="widget-title">Working Hours</h5>
                                 <div class="textwidget">
@@ -602,8 +546,8 @@
                                         Sunday: Closed
                                     </p>
                                 </div>
-                            </div><!-- /.widget -->
-                        </div><!-- /.col-md-4 -->
+                            </div>
+                        </div> --}}
 
                     </div><!-- /.row -->
                 </div><!-- /.container -->
@@ -641,29 +585,24 @@
     <!-- Javascript -->
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.easing.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.flexslider-min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/owl.carousel.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.isotope.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/imagesloaded.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-countTo.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.easing.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.flexslider-min.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/owl.carousel.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.isotope.min.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/imagesloaded.min.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-countTo.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-waypoints.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-ui-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-validate.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.mb.YTPlayer.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery-validate.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.mb.YTPlayer.js') }}"></script> --}}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/gmap3.min.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/gmap3.min.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.cookie.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.fitvids.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('public/frontend/javascript/jquery.fitvids.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/main.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/frontend/javascript/slick.js') }}"></script>
 
-    <!-- Revolution Slider -->
-    <script type="text/javascript"
-        src="{{ asset('public/frontend/javascript/jquery.themepunch.tools.min.js') }}"></script>
-    <script type="text/javascript"
-        src="{{ asset('public/frontend/javascript/jquery.themepunch.revolution.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/frontend/javascript/slider.js') }}"></script>
+
 
 
 </body>
